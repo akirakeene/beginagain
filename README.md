@@ -1,7 +1,4 @@
-# beginagain
----
-layout: default
-title: akira keene teotrakool
+# akira keene teotrakool
 ---
 
 <style>
