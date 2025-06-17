@@ -1,9 +1,5 @@
 # akira keene teotrakool
 ---
----
-layout: default
-title: akira keene teotrakool
----
 
 <style>
 * {
