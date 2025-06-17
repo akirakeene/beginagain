@@ -9,11 +9,11 @@
 }
 
 body {
-    font-family: 'Courier New', monospace !important;
-    background: #f5f5dc !important;
+    font-family: 'Georgia', 'Times New Roman', serif !important;
+    background: #f0f7ff !important;
     color: #333 !important;
     font-size: 14px !important;
-    line-height: 1.4 !important;
+    line-height: 1.5 !important;
     overflow-x: hidden;
 }
 
@@ -21,7 +21,7 @@ body {
     position: fixed;
     width: 20px;
     height: 20px;
-    background: rgba(139, 90, 60, 0.3);
+    background: rgba(70, 130, 180, 0.3);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
@@ -31,46 +31,58 @@ body {
 .container {
     max-width: 900px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 20px 20px 200px;
 }
 
-/* floating navigation */
-.nav-floating {
+/* left navigation */
+.nav-left {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 180px;
+    background: rgba(240, 247, 255, 0.95);
+    border-right: 2px dashed #4682b4;
+    padding: 30px 20px;
     z-index: 1000;
-    background: rgba(245, 245, 220, 0.9);
-    border: 2px dashed #8b5a3c;
-    padding: 15px;
-    font-size: 12px;
-    transform: rotate(2deg);
-    transition: transform 0.3s ease;
+    overflow-y: auto;
 }
 
-.nav-floating:hover {
-    transform: rotate(-1deg) scale(1.05);
+.nav-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #4682b4;
+    margin-bottom: 20px;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
 }
 
-.nav-floating a {
+.nav-left a {
     display: block;
-    color: #8b5a3c !important;
+    color: #4682b4 !important;
     text-decoration: none !important;
-    margin: 5px 0;
+    margin: 12px 0;
+    padding: 8px 12px;
     position: relative;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 13px;
 }
 
-.nav-floating a:hover {
-    color: #d2691e !important;
+.nav-left a:hover {
+    background: rgba(70, 130, 180, 0.1);
+    color: #1e90ff !important;
+    transform: translateX(5px);
 }
 
-.nav-floating a:before {
+.nav-left a:before {
     content: "→ ";
     opacity: 0;
     transition: opacity 0.3s ease;
+    color: #87ceeb;
 }
 
-.nav-floating a:hover:before {
+.nav-left a:hover:before {
     opacity: 1;
 }
 
@@ -83,8 +95,8 @@ body {
 
 .name {
     font-size: 2.5rem !important;
-    font-weight: bold !important;
-    color: #8b5a3c !important;
+    font-weight: normal !important;
+    color: #4682b4 !important;
     text-transform: lowercase;
     letter-spacing: -0.02em;
     position: relative;
@@ -100,8 +112,8 @@ body {
     height: 3px;
     background: repeating-linear-gradient(
         to right,
-        #8b5a3c 0px,
-        #8b5a3c 10px,
+        #4682b4 0px,
+        #4682b4 10px,
         transparent 10px,
         transparent 15px
     );
@@ -119,91 +131,164 @@ body {
 .divider {
     text-align: center;
     margin: 40px 0;
-    color: #8b5a3c;
-    font-family: monospace;
+    color: #4682b4;
+    font-family: Georgia, serif;
     font-size: 12px;
     user-select: none;
 }
 
 /* content blocks */
 .content-block {
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid #ddd;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #b0d4f1;
     margin: 30px 0;
     padding: 25px;
     position: relative;
     transform: rotate(0deg);
     transition: all 0.3s ease;
+    border-radius: 8px;
 }
 
 .content-block:nth-child(odd) {
-    transform: rotate(0.5deg);
+    transform: rotate(0.3deg);
     border-style: dashed;
 }
 
 .content-block:nth-child(even) {
-    transform: rotate(-0.3deg);
+    transform: rotate(-0.2deg);
     border-style: dotted;
 }
 
 .content-block:hover {
-    transform: rotate(0deg) scale(1.02);
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    transform: rotate(0deg) scale(1.01);
+    box-shadow: 0 8px 25px rgba(70, 130, 180, 0.15);
     z-index: 10;
 }
 
 .section-title {
-    font-size: 1.2rem !important;
-    color: #8b5a3c !important;
-    margin-bottom: 15px !important;
+    font-size: 1.3rem !important;
+    color: #4682b4 !important;
+    margin-bottom: 20px !important;
     text-transform: lowercase;
     position: relative;
     display: inline-block;
+    font-weight: normal;
 }
 
 .section-title:before {
     content: "◆ ";
-    color: #d2691e;
+    color: #87ceeb;
 }
 
 /* research items */
 .research-item {
     margin: 20px 0;
-    padding: 15px;
-    background: rgba(245, 245, 220, 0.5);
-    border-left: 3px solid #8b5a3c;
+    padding: 18px;
+    background: rgba(240, 247, 255, 0.6);
+    border-left: 3px solid #4682b4;
     position: relative;
+    border-radius: 4px;
 }
 
 .research-status {
     font-size: 11px;
-    color: #d2691e;
+    color: #1e90ff;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-weight: bold;
 }
 
 .research-title {
     font-style: italic;
     color: #333;
-    margin-bottom: 8px;
-    line-height: 1.3;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.research-title:hover {
+    color: #4682b4;
 }
 
 .research-details {
-    font-size: 12px;
+    font-size: 13px;
     color: #666;
-    line-height: 1.4;
+    line-height: 1.5;
+}
+
+/* expandable working papers */
+.working-paper {
+    border: 1px solid #b0d4f1;
+    border-radius: 8px;
+    margin: 15px 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.working-paper-header {
+    padding: 15px;
+    background: rgba(70, 130, 180, 0.05);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.working-paper-header:hover {
+    background: rgba(70, 130, 180, 0.1);
+}
+
+.working-paper-title {
+    font-style: italic;
+    color: #4682b4;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.expand-icon {
+    color: #87ceeb;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.working-paper.expanded .expand-icon {
+    transform: rotate(180deg);
+}
+
+.working-paper-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 15px;
+}
+
+.working-paper.expanded .working-paper-content {
+    max-height: 1000px;
+    padding: 0 15px 20px 15px;
+}
+
+.working-paper-abstract {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #555;
+    text-align: justify;
+}
+
+.working-paper-abstract p {
+    margin-bottom: 15px;
 }
 
 /* experience */
 .experience-item {
     margin: 25px 0;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    border: 2px solid #ddd;
+    padding: 22px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #b0d4f1;
     position: relative;
+    border-radius: 8px;
 }
 
 .experience-item:before {
@@ -213,10 +298,11 @@ body {
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, #8b5a3c, #d2691e, #8b5a3c);
+    background: linear-gradient(45deg, #4682b4, #87ceeb, #4682b4);
     z-index: -1;
     opacity: 0;
     transition: opacity 0.3s ease;
+    border-radius: 8px;
 }
 
 .experience-item:hover:before {
@@ -224,32 +310,34 @@ body {
 }
 
 .experience-header {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .experience-title {
     font-weight: bold;
-    color: #8b5a3c;
+    color: #4682b4;
     text-transform: lowercase;
+    font-size: 15px;
 }
 
 .experience-org {
     color: #666;
     font-style: italic;
     margin: 5px 0;
+    font-size: 14px;
 }
 
 .experience-date {
     font-size: 11px;
     color: #999;
     float: right;
-    transform: rotate(2deg);
+    transform: rotate(1deg);
 }
 
 .experience-details {
     font-size: 13px;
     color: #555;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 .experience-details ul {
@@ -258,7 +346,7 @@ body {
 }
 
 .experience-details li {
-    margin: 5px 0;
+    margin: 8px 0;
     position: relative;
     padding-left: 20px;
 }
@@ -267,65 +355,67 @@ body {
     content: "•";
     position: absolute;
     left: 0;
-    color: #8b5a3c;
+    color: #4682b4;
     font-weight: bold;
 }
 
 /* bio section */
 .bio-text {
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.7;
     color: #444;
     text-align: justify;
     columns: 2;
-    column-gap: 30px;
-    column-rule: 1px dashed #ccc;
+    column-gap: 35px;
+    column-rule: 1px dashed #b0d4f1;
 }
 
 .bio-text p {
-    margin-bottom: 15px;
+    margin-bottom: 18px;
     break-inside: avoid;
 }
 
 /* skills grid */
 .skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .skill-box {
     background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #ddd;
-    padding: 15px;
+    border: 1px solid #b0d4f1;
+    padding: 18px;
     text-align: center;
-    transform: rotate(1deg);
+    transform: rotate(0.5deg);
     transition: all 0.3s ease;
+    border-radius: 8px;
 }
 
 .skill-box:nth-child(even) {
-    transform: rotate(-1deg);
+    transform: rotate(-0.5deg);
 }
 
 .skill-box:hover {
-    transform: rotate(0deg) scale(1.05);
-    border-color: #8b5a3c;
+    transform: rotate(0deg) scale(1.02);
+    border-color: #4682b4;
+    box-shadow: 0 5px 15px rgba(70, 130, 180, 0.1);
 }
 
 .skill-category {
     font-size: 12px;
-    color: #8b5a3c;
+    color: #4682b4;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     font-weight: bold;
 }
 
 .skill-list {
     font-size: 13px;
     color: #555;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 /* contact section */
@@ -333,48 +423,51 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .contact-item {
-    background: rgba(245, 245, 220, 0.7);
-    border: 2px dashed #8b5a3c;
-    padding: 15px;
+    background: rgba(240, 247, 255, 0.8);
+    border: 2px dashed #4682b4;
+    padding: 18px;
     text-align: center;
-    transform: rotate(-1deg);
+    transform: rotate(-0.5deg);
     transition: all 0.3s ease;
+    border-radius: 8px;
 }
 
 .contact-item:nth-child(even) {
-    transform: rotate(1deg);
+    transform: rotate(0.5deg);
 }
 
 .contact-item:hover {
     transform: rotate(0deg);
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 5px 15px rgba(70, 130, 180, 0.1);
 }
 
 .contact-label {
     font-size: 11px;
-    color: #8b5a3c;
+    color: #4682b4;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-weight: bold;
 }
 
 .contact-value {
     color: #333;
     font-size: 13px;
+    line-height: 1.4;
 }
 
 .contact-value a {
-    color: #8b5a3c !important;
+    color: #4682b4 !important;
     text-decoration: none !important;
 }
 
 .contact-value a:hover {
-    color: #d2691e !important;
+    color: #1e90ff !important;
     text-decoration: underline !important;
 }
 
@@ -389,23 +482,27 @@ body {
 
 /* animations */
 @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(1deg); }
-    50% { transform: translateY(-5px) rotate(-1deg); }
+    0%, 100% { transform: translateY(0px) rotate(0.5deg); }
+    50% { transform: translateY(-3px) rotate(-0.5deg); }
 }
 
 .floating {
-    animation: float 6s ease-in-out infinite;
+    animation: float 8s ease-in-out infinite;
 }
 
 /* mobile */
 @media (max-width: 768px) {
-    .nav-floating {
+    .nav-left {
         position: relative;
-        top: auto;
-        right: auto;
-        margin: 20px auto;
-        display: table;
-        transform: rotate(0deg);
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 2px dashed #4682b4;
+        margin-bottom: 20px;
+    }
+
+    .container {
+        padding: 20px;
     }
 
     .bio-text {
@@ -428,23 +525,23 @@ body {
 /* special effects */
 .glitch {
     position: relative;
-    color: #8b5a3c;
-    font-size: 2rem;
-    font-weight: bold;
+    color: #4682b4;
+    font-size: 2.5rem;
+    font-weight: normal;
     text-transform: lowercase;
     letter-spacing: -0.02em;
-    animation: glitch 2s linear infinite;
+    animation: glitch 3s linear infinite;
 }
 
 @keyframes glitch {
     2%, 64% {
-        transform: translate(2px, 0) skew(0deg);
+        transform: translate(1px, 0) skew(0deg);
     }
     4%, 60% {
-        transform: translate(-2px, 0) skew(0deg);
+        transform: translate(-1px, 0) skew(0deg);
     }
     62% {
-        transform: translate(0, 0) skew(5deg);
+        transform: translate(0, 0) skew(2deg);
     }
 }
 
@@ -459,21 +556,21 @@ body {
 }
 
 .glitch:before {
-    animation: glitch 2s linear infinite;
-    color: #d2691e;
+    animation: glitch 3s linear infinite;
+    color: #87ceeb;
     z-index: -1;
 }
 
 .glitch:after {
-    animation: glitch 2s linear infinite;
-    color: #8b5a3c;
+    animation: glitch 3s linear infinite;
+    color: #4682b4;
     z-index: -2;
 }
 
 /* Override GitHub Pages default styles */
 .markdown-body {
-    font-family: 'Courier New', monospace !important;
-    background: #f5f5dc !important;
+    font-family: 'Georgia', 'Times New Roman', serif !important;
+    background: #f0f7ff !important;
     color: #333 !important;
 }
 
@@ -484,9 +581,9 @@ body {
 
 <div class="cursor-trail"></div>
 
-<!-- floating navigation -->
-<div class="nav-floating floating">
-<div style="margin-bottom: 10px; font-weight: bold; color: #8b5a3c;">navigate:</div>
+<!-- left navigation -->
+<div class="nav-left">
+<div class="nav-title">navigate</div>
 <a href="#about">about</a>
 <a href="#research">research</a>
 <a href="#experience">experience</a>
@@ -554,8 +651,51 @@ body {
 
 <div class="research-item">
 <div class="research-status">working papers</div>
-<div class="research-title">"educational sequencing as class strategy: thai undergraduate and graduate student cohesion in elite u.s. universities"</div>
-<div class="research-details">with archawin kittirattanapaiboon.</div>
+
+<div class="working-paper" onclick="togglePaper(this)">
+<div class="working-paper-header">
+<div class="working-paper-title">"educational sequencing as class strategy: thai undergraduate and graduate student cohesion in elite u.s. universities"</div>
+<div class="expand-icon">▼</div>
+</div>
+<div class="working-paper-content">
+<div class="working-paper-abstract">
+<p><em>with archawin kittirattanapaiboon</em></p>
+<p>What happens when students from the same country arrive at elite U.S. universities through different educational routes—and why do these pathways matter more than shared cultural identity for determining social belonging? This paper examines internal group cohesion dynamics among Thai students at elite U.S. universities, exploring how educational pathways reproduce class stratification and privilege.</p>
+<p>This paper hypothesizes that undergraduate Thai students in the U.S., often from families with long-standing elite status, benefit from early exposure to international schooling and develop distinct forms of cultural and social capital. In contrast, graduate students, who typically hold Thai bachelor's degrees, face greater difficulty aligning with the class practices of their undergraduate peers.</p>
+<p>Building on existing arguments about international education as a site of class reproduction, we reveal how Thailand has witnessed a growing shift in elite educational strategies. Whereas a decade ago many families pursued graduate studies abroad after domestic bachelor's studies, fulfilling the "graduated from abroad" (jop nok) ideal, elite families now increasingly send children to international schools to pursue undergraduate degrees abroad. Consequently, graduate students with Thai bachelor's degrees find themselves less able to share the same class practices as their undergraduate counterparts. This paper challenges dominant narratives about international education as opportunity and highlights its role in reinforcing social inequalities.</p>
+</div>
+</div>
+</div>
+
+<div class="working-paper" onclick="togglePaper(this)">
+<div class="working-paper-header">
+<div class="working-paper-title">"addictive glamorization: enterprising influencers and the reimagining of thai urban identity through aspirational femininity"</div>
+<div class="expand-icon">▼</div>
+</div>
+<div class="working-paper-content">
+<div class="working-paper-abstract">
+<p>In contemporary Bangkok, a distinct entrepreneurial niche has emerged among female influencers educated at elite international schools in the Silom–Asoke corridor. These "dek inter" (internationally educated) influencers deploy enterprise self-branding, visual digital media, and business ventures to reinforce high-class entrepreneurial feminine values. Their content simultaneously produces and transmits affects of aspirational femininity to young audiences who often possess substantial economic privilege, though less entrenched than that of the content creators themselves.</p>
+<p>This aspirational femininity manifests in distinctive consumption patterns: Triam Udom Suksa students receive boutique-packaged Thai tea cakes via Grab delivery at school gates; Chulalongkorn interns unwind over Spanish tapas at The Commons; Longchamp bags rest casually on metal sheet tables at street-side Isaan restaurants.</p>
+<p>Thai youth describe this phenomenon as "tid glam" (addictive glamorization), a relationship wherein individuals from lower socioeconomic backgrounds become symbolically invested in content marketed aspirationally by those from higher strata. What distinguishes this dynamic from conventional celebrity influence or aspirational marketing is its specifically gendered dimension within the Thai context. The content creators project an entrepreneurial femininity that fuses business acumen with traditionally "glam" feminine aesthetic and relational qualities. Their audience—predominantly middle-class high school students—consumes this content not merely as entertainment but as instructional material for potential social mobility and cultural critique.</p>
+</div>
+</div>
+</div>
+
+<div class="working-paper" onclick="togglePaper(this)">
+<div class="working-paper-header">
+<div class="working-paper-title">"political psychology in thailand: future avenues for examining emotions in thai politics"</div>
+<div class="expand-icon">▼</div>
+</div>
+<div class="working-paper-content">
+<div class="working-paper-abstract">
+<p><em>Revise and Resubmit, Journal of Social and Political Psychology</em></p>
+<p>This paper presents a critical review of political psychology in Thailand, addressing a significant gap in a discipline dominated by Western, Educated, Industrialized, Rich, and Democratic (WEIRD) populations. Thailand's complex political landscape offers fertile ground for expanding political psychology's theoretical horizons through its institutional volatility, color-coded movements, religious influences, and emerging digital activism.</p>
+<p>This analysis examines how existing theoretical frameworks require fundamental reconsideration when applied to Thai contexts. Drawing on established literature and recent research, this paper identifies six interconnected dimensions warranting further investigation: (1) the emotional underpinnings of Thailand's factional politics; (2) the impact of Buddhist cultural contexts on political trust and legitimacy perceptions; (3) the evolving dynamics of youth political socialization through digital platforms; (4) the psychological mechanisms that sustain institutional relationships despite governance challenges; (5) the relationship between religious identity and political attitudes; and (6) evidence-based approaches to mitigating polarization.</p>
+<p>By critically examining the methodological and conceptual limitations of existing research and proposing the Thai Political Affect-Identity-Institution Framework (TPAIM), this study contributes to the development of culturally informed political psychology theories while offering insights into Thailand's ongoing political challenges.</p>
+</div>
+</div>
+</div>
+
 </div>
 
 <div class="research-item">
@@ -741,11 +881,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// expandable working papers
+function togglePaper(element) {
+    element.classList.toggle('expanded');
+}
+
 // random rotation on page load
 function randomizeRotations() {
     const blocks = document.querySelectorAll('.content-block');
     blocks.forEach((block, index) => {
-        const randomRotation = (Math.random() - 0.5) * 2;
+        const randomRotation = (Math.random() - 0.5) * 1;
         block.style.transform = `rotate(${randomRotation}deg)`;
     });
 }
@@ -756,14 +901,7 @@ window.addEventListener('load', randomizeRotations);
 // add some randomness to skill boxes
 const skillBoxes = document.querySelectorAll('.skill-box');
 skillBoxes.forEach(box => {
-    const randomRotation = (Math.random() - 0.5) * 4;
+    const randomRotation = (Math.random() - 0.5) * 2;
     box.style.transform = `rotate(${randomRotation}deg)`;
 });
-
-// floating navigation subtle animation
-const nav = document.querySelector('.nav-floating');
-setInterval(() => {
-    const randomRotation = (Math.random() - 0.5) * 6;
-    nav.style.transform = `rotate(${randomRotation}deg)`;
-}, 3000);
 </script>
